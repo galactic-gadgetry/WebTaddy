@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:WebTaddy"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MantisUI;component/MantisUI.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>
