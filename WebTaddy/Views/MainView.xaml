@@ -1,12 +1,19 @@
-﻿<Window x:Class="WebTaddy.MainWindow"
+﻿<Window x:Class="WebTaddy.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WebTaddy"
+        xmlns:local="clr-namespace:WebTaddy.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainView"
+        Height="950" Width="1500"
+        MinHeight="410" MinWidth="515"
+        WindowStartupLocation="CenterScreen">
+    
     <Grid>
 
+        <Label Content="Main view placeholder"/>
+
     </Grid>
+    
 </Window>
