@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebTaddy.Views"
+        xmlns:ui="clr-namespace:WebTaddy.UIComponents"
+        xmlns:vm="clr-namespace:WebTaddy.ViewModels"
         mc:Ignorable="d"
         Title="MainView"
         Height="950" Width="1500"
@@ -12,8 +14,14 @@
     
     <Grid>
 
-        <Label Content="Main view placeholder"/>
-
+        <ContentControl Content="{Binding CurrentContentViewModel}"    >
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vm:LayoutViewModel}">
+                    <ui:Layout/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    
     </Grid>
     
 </Window>

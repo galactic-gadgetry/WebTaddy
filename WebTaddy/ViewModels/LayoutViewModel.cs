@@ -5,7 +5,7 @@ using WebTaddy.Stores;
 
 namespace WebTaddy.ViewModels
 {
-    internal class MainViewModel : ViewModelBase
+    class LayoutViewModel : ViewModelBase
     {
         /// <summary>
         /// Used to manage the app's navigation state.
@@ -14,24 +14,24 @@ namespace WebTaddy.ViewModels
 
 
         /// <summary>
-        /// The Main view's current content view-model.
+        /// The Layout's current content view-model.
         /// </summary>
         public ViewModelBase? CurrentContentViewModel =>
-            _navigationStore.CurrentMainContentViewModel;
+            _navigationStore.CurrentLayoutContentViewModel;
 
 
 
-        public MainViewModel(NavigationStore navigationStore)
+        public LayoutViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
 
-            _navigationStore.CurrentMainContentViewModelChanged +=
+            _navigationStore.CurrentLayoutContentViewModelChanged +=
                 OnCurrentContentViewModelChanged;
         }
 
 
         /// <summary>
-        /// Handles the navigation store's main content
+        /// Handles the navigation store's layout content
         /// view-model change event.
         /// </summary>
         private void OnCurrentContentViewModelChanged()

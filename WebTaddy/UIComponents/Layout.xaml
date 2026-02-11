@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="WebTaddy.UIComponents.Layout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WebTaddy.UIComponents"
+             xmlns:view="clr-namespace:WebTaddy.Views"
+             xmlns:vm="clr-namespace:WebTaddy.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="950" d:DesignWidth="1500"
+             d:Background="White">
+    
+    <Grid>
+        <Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- #Content -->
+                <Border Grid.Row="0">
+                    <ContentControl Content="{Binding CurrentContentViewModel}">
+                        <ContentControl.Resources>
+                            <DataTemplate DataType="{x:Type vm:TimeSheetViewModel}">
+                                <view:TimeSheetView/>
+                            </DataTemplate>
+                        </ContentControl.Resources>
+                    </ContentControl>
+                </Border>
+                
+                <!-- Info Bar -->
+                <Border Grid.Row="1">
+                    <Label Content="Info Bar placeholder"/>
+                </Border>
+            </Grid>
+            
+        </Border>
+    </Grid>
+    
+</UserControl>
