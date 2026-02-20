@@ -8,6 +8,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/MantisUI;component/MantisUI.xaml"/>
+
+                <ResourceDictionary Source="Resources/Dictionaries/Buttons.xaml"/>
+                <ResourceDictionary Source="Resources/Dictionaries/Converters.xaml"/>
+                <ResourceDictionary Source="Resources/Dictionaries/Images.xaml"/>
+                <ResourceDictionary Source="Resources/Dictionaries/Palette.xaml"/>
+                <ResourceDictionary Source="Resources/Dictionaries/TextControls.xaml"/>
+                <ResourceDictionary Source="Resources/Dictionaries/Typography.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
          

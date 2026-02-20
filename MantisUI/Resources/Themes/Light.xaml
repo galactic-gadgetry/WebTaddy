@@ -1,4 +1,51 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    
+    <!-- #Colors -->
+    <Color x:Key="AccentColor60">#769DD7</Color>
+    <Color x:Key="AccentColor70">#5F8DD7</Color>
+    <Color x:Key="AccentColor80">#487DCA</Color>
+    <Color x:Key="AccentColor90">#316CC4</Color>
+    <Color x:Key="AccentColor100">#1A5CBD</Color>
+    <Color x:Key="AccentColor110">#1753AA</Color>
+    <Color x:Key="AccentColor120">#154A97</Color>
+    <Color x:Key="AccentColor130">#124084</Color>
+    <Color x:Key="AccentColor140">#103771</Color>
+
+    <Color x:Key="SolidControlFillColorPrimary100">#D3D3D3</Color>
+    <Color x:Key="SolidControlFillColorPrimary110">#BEBEBE</Color>
+
+    <Color x:Key="SolidControlAccentFillColorPrimary100">#5597B5</Color>
+
+    <Color x:Key="TextFillColorPrimary100">#000000</Color>
+
+
+    <!-- #Brushes -->
+    <SolidColorBrush x:Key="ControlBackgroundFillColorBrush1" Color="{StaticResource SolidControlFillColorPrimary100}"/>
+
+    <SolidColorBrush x:Key="LayerFillColorBrush1" Color="{StaticResource AccentColor100}"/>
+    <SolidColorBrush x:Key="LayerFillColorBrush2" Color="{StaticResource AccentColor110}"/>
+    <SolidColorBrush x:Key="LayerFillColorBrush3" Color="{StaticResource AccentColor120}"/>
+    <SolidColorBrush x:Key="LayerFillColorBrush4" Color="{StaticResource AccentColor130}"/>
+    <SolidColorBrush x:Key="LayerFillColorBrush5" Color="{StaticResource AccentColor140}"/>
+
+    <SolidColorBrush x:Key="LayerAccentFillColorBrush1" Color="AntiqueWhite"/>
+
+    <SolidColorBrush x:Key="ControlFillColorBrush1" Color="{StaticResource AccentColor60}"/>
+    <SolidColorBrush x:Key="ControlFillColorBrush2" Color="{StaticResource AccentColor70}"/>
+    <SolidColorBrush x:Key="ControlFillColorBrush3" Color="{StaticResource AccentColor80}"/>
+    <SolidColorBrush x:Key="ControlFillColorBrush4" Color="{StaticResource AccentColor90}"/>
+
+    <SolidColorBrush x:Key="ControlAccentFillColorBrush1" Color="{StaticResource SolidControlAccentFillColorPrimary100}"/>
+
+    <SolidColorBrush x:Key="TextAccentFillColorBrush1" Color="White"/>
+    
+    
+    <!-- #Button -->
+    <SolidColorBrush x:Key="TransparentButtonMouseOverBackgroundBrush" Color="{StaticResource SolidControlFillColorPrimary100}"/>
+    <SolidColorBrush x:Key="TransparentButtonPressedBackgroundBrush" Color="{StaticResource SolidControlFillColorPrimary110}"/>
+
+    <SolidColorBrush x:Key="TransparentAccentButtonMouseOverBackgroundBrush" Color="{StaticResource AccentColor140}"/>
+
 </ResourceDictionary>

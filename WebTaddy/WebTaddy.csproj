@@ -9,6 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\Icons\Arrow-Left-Circle\arrow-left-circle_black.png" />
+    <None Remove="Resources\Images\Icons\Lock\lock.png" />
+    <None Remove="Resources\Images\Icons\Lock\lock_black.png" />
+    <None Remove="Resources\Images\Icons\Plus-Circle\plus-circle_black.png" />
+    <None Remove="Resources\Images\Icons\Plus-Circle\plus-circle_white.png" />
+    <None Remove="Resources\Images\Icons\Unlock\unlock.png" />
+    <None Remove="Resources\Images\Icons\Unlock\unlock_black.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icons\Arrow-Left-Circle\arrow-left-circle_black.png" />
+    <Resource Include="Resources\Images\Icons\Lock\lock_black.png" />
+    <Resource Include="Resources\Images\Icons\Plus-Circle\plus-circle_black.png" />
+    <Resource Include="Resources\Images\Icons\Plus-Circle\plus-circle_white.png" />
+    <Resource Include="Resources\Images\Icons\Unlock\unlock_black.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MantisUI\MantisUI.csproj" />
   </ItemGroup>
 

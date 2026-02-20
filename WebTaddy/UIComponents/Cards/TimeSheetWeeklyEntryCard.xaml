@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="WebTaddy.UIComponents.Cards.TimeSheetWeeklyEntryCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WebTaddy.UIComponents.Cards"
+             mc:Ignorable="d" 
+             d:DesignWidth="1420" d:Background="White">
+
+    <Grid>
+        <Border BorderBrush="{StaticResource BorderAccentBrushSecondary1}" BorderThickness="0.5">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- #Column Headers -->
+                <Border Grid.Row="0" Background="{StaticResource LayerFillColorBrush1}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style x:Key="ColumnHeaderInnerBorderStyle" TargetType="Border">
+                                <Setter Property="BorderBrush" Value="{StaticResource BorderBrushPrimary1}"/>
+                                <Setter Property="BorderThickness" Value="0.5,0"/>
+                            </Style>
+                            <Style x:Key="ColumnHeaderOuterBorderStyle" TargetType="Border">
+                                <Setter Property="BorderBrush" Value="{StaticResource BorderAccentBrushSecondary1}"/>
+                                <Setter Property="BorderThickness" Value="0,0.5"/>
+                            </Style>
+
+                            <Style TargetType="Label" BasedOn="{StaticResource DefaultLabelStyle}">
+                                <Setter Property="Foreground" Value="{StaticResource TextAccentFillColorBrush1}"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" MaxWidth="565"/>
+                            <ColumnDefinition Width="*" MaxWidth="225"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            Grid.Column="0"
+                            Style="{StaticResource ColumnHeaderOuterBorderStyle}"
+                            BorderThickness="0.5,0.5,0,0.5">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}" BorderThickness="0,0,0.5,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Project" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Button>
+                                        <Button.Resources>
+                                            <Style TargetType="Button" BasedOn="{StaticResource TransparentAccentIconButtonStyle}">
+                                                <Setter Property="Margin" Value="0"/>
+                                                <Setter Property="Padding" Value="0"/>
+                                            </Style>
+                                        </Button.Resources>
+                                        <Image Source="{StaticResource PlusCircleWhite}"/>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </Border>
+                        
+                        <Border Grid.Column="1" Style="{StaticResource ColumnHeaderOuterBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <Label Content="Total" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="2" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Sun"
+                                    IsDayOff="True"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="3" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Mon"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="4" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Tue"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="5" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Wed"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="6" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Thu"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="7" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Fri"/>
+                            </Border>
+                        </Border>
+
+                        <Border Grid.Column="8" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                            <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
+                                <local:TimeSheetListHeaderCard
+                                    DayOfWeekText="Sat"
+                                    IsDayOff="True"/>
+                            </Border>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- #Entries List -->
+                <Border Grid.Row="1">
+                    <ListView
+                        x:Name="EntriesListView">
+                        <ListViewItem>
+                            <local:TimeSheetEntryCard Width="{Binding ElementName=EntriesListView, Path=ActualWidth}"/>
+                        </ListViewItem>
+                        <ListViewItem>
+                            <local:TimeSheetEntryCard Width="{Binding ElementName=EntriesListView, Path=ActualWidth}"/>
+                        </ListViewItem>
+                    </ListView>
+                </Border>
+
+                <!-- #Totals -->
+                <Border Grid.Row="2" Background="{StaticResource LayerAccentFillColorBrush1}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="{StaticResource BorderAccentBrushSecondary1}"/>
+                                <Setter Property="BorderThickness" Value="0.5"/>
+                            </Style>
+
+                            <Style TargetType="Label" BasedOn="{StaticResource DefaultLabelStyle}">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" MaxWidth="565"/>
+                            <ColumnDefinition Width="*" MaxWidth="225"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <Label Content="Week 1 Total" HorizontalAlignment="Right"/>
+                        </Border>
+
+                        <Border Grid.Column="1">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="2">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="3">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="4">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="5">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="6">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="7">
+                            <Label Content="0.0"/>
+                        </Border>
+
+                        <Border Grid.Column="8">
+                            <Label Content="0.0"/>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Border>
+    </Grid>
+
+</UserControl>

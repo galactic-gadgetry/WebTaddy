@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="WebTaddy.UIComponents.Cards.TimeSheetEntryCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WebTaddy.UIComponents.Cards"
+             mc:Ignorable="d" 
+             d:DesignWidth="1420">
+    
+    <Grid>
+        <Border Background="{StaticResource ControlFillColorBrush1}">
+
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="{StaticResource BorderAccentBrushSecondary1}"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                    </Style>
+
+                    <Style TargetType="TextBox" BasedOn="{StaticResource TimeSheetInputTextBoxStyle}">
+                        
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" MaxWidth="565"/>
+                    <ColumnDefinition Width="*" MaxWidth="225"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- #Project Name -->
+                <Border Grid.Column="0">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultTextBlockStyle}">
+                                <Setter Property="Margin" Value="5"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Column="0" Grid.Row="0"
+                            Text="12345.67.89.10.11"
+                            TextWrapping="NoWrap"/>
+
+                        <TextBlock
+                            Grid.Column="0" Grid.Row="1"
+                            Text="KSC-LAB, TEST, &amp; AND DEV SUSTAIN"
+                            TextWrapping="Wrap"/>
+                                            
+                        <TextBlock
+                            Grid.Column="1" Grid.Row="0"
+                            Text="REG"/>
+
+                        <TextBlock
+                            Grid.Column="1" Grid.Row="1"
+                            Text="TWORK"/>
+                    </Grid>
+                </Border>
+                
+                <!-- #Total Hours -->
+                <Border Grid.Column="1" Background="{StaticResource LayerAccentFillColorBrush1}">
+                    <Label
+                        Content="0.0"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                
+                <!-- #Inputs -->
+                <Border Grid.Column="2">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="3">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="4">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="5">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="6">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="7">
+                    <TextBox Text="0.0"/>
+                </Border>
+                <Border Grid.Column="8">
+                    <TextBox Text="0.0"/>
+                </Border>
+            </Grid>
+            
+        </Border>
+    </Grid>
+    
+</UserControl>

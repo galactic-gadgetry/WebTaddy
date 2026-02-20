@@ -4,12 +4,117 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WebTaddy.Views"
+             xmlns:card="clr-namespace:WebTaddy.UIComponents.Cards"
              mc:Ignorable="d" 
              d:DesignHeight="950" d:DesignWidth="1500"
              d:Background="White">
     
     <Grid>
-        <Label Content="Time Sheet view placholder"/>
+        <Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- #Title -->
+                <Border
+                    Grid.Row="0"
+                    Margin="40,25">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            Content="Time Sheet"
+                            Style="{StaticResource ViewTitleLabelStyle}"/>
+
+                        <Button
+                            Grid.Column="1">
+                            <Button.Resources>
+                                <Style TargetType="Button" BasedOn="{StaticResource TransparentIconButtonStyle}">
+                                </Style>
+                            </Button.Resources>
+                            <Image Source="{StaticResource ArrowLeftCircleBlack}"/>
+                        </Button>
+                    </Grid>
+                </Border>
+                
+                <!-- #Controls -->
+                <Border
+                    Grid.Row="1"
+                    Margin="40,0">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button" BasedOn="{StaticResource StandardControlButtonStyle}"/>
+                        </StackPanel.Resources>
+
+                        <Button
+                            Content="Calculate"/>
+                        <Button
+                            Content="Reset"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- #Status Information -->
+                <Border Grid.Row="2">
+                    <Label/>
+                </Border>
+
+                <!-- #Content -->
+                <Border
+                    Grid.Row="3"
+                    Padding="40,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <card:TimeSheetWeeklyEntryCard Grid.Row="0"/>
+
+                        <card:TimeSheetWeeklyEntryCard Grid.Row="1"/>
+
+                        <Grid Grid.Row="2" Background="{StaticResource LayerAccentFillColorBrush1}">
+                            <Grid.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="{StaticResource BorderAccentBrushSecondary1}"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" MaxWidth="565"/>
+                                <ColumnDefinition Width="*" MaxWidth="225"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" BorderThickness="1,0.5,0.5,1">
+                                <Label Content="GRAND TOTAL:" HorizontalAlignment="Right"/>
+                            </Border>
+
+                            <Border Grid.Column="1" BorderThickness="0.5,0.5,0.5,1">
+                                <Label Content="0.0" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+
+                            <Border Grid.Column="2" Grid.ColumnSpan="7" BorderThickness="0.5,0.5,1,1"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                
+            </Grid>
+            
+        </Border>
     </Grid>
     
 </UserControl>

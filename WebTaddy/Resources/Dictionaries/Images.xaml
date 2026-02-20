@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <BitmapImage x:Key="ArrowLeftCircleBlack" UriSource="/WebTaddy;component/Resources/Images/Icons/Arrow-Left-Circle/arrow-left-circle_black.png"/>
+
+    <BitmapImage x:Key="LockBlack" UriSource="/WebTaddy;component/Resources/Images/Icons/Lock/lock_black.png"/>
+
+    <BitmapImage x:Key="PlusCircleBlack" UriSource="/WebTaddy;component/Resources/Images/Icons/Plus-Circle/plus-circle_black.png"/>
+    <BitmapImage x:Key="PlusCircleWhite" UriSource="/WebTaddy;component/Resources/Images/Icons/Plus-Circle/plus-circle_white.png"/>
+
+    <BitmapImage x:Key="UnlockBlack" UriSource="/WebTaddy;component/Resources/Images/Icons/Unlock/unlock_black.png"/>
+
+</ResourceDictionary>
