@@ -55,7 +55,8 @@
                         </StackPanel.Resources>
 
                         <Button
-                            Content="Calculate"/>
+                            Content="Calculate"
+                            Command="{Binding CalculateButtonClickedCommand}"/>
                         <Button
                             Content="Reset"/>
                     </StackPanel>
@@ -77,9 +78,17 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <card:TimeSheetWeeklyEntryCard Grid.Row="0"/>
+                        <card:TimeSheetWeeklyEntryCard
+                            Grid.Row="0"
+                            EntryLines="{Binding FirstWeekEntryLines}"
+                            ListHeaders="{Binding FirstWeekListHeaders}"
+                            TotalRowText="Week 1 Total"/>
 
-                        <card:TimeSheetWeeklyEntryCard Grid.Row="1"/>
+                        <card:TimeSheetWeeklyEntryCard
+                            Grid.Row="1"
+                            EntryLines="{Binding SecondWeekEntryLines}"
+                            ListHeaders="{Binding SecondWeekListHeaders}"
+                            TotalRowText="Week 2 Total"/>
 
                         <Grid Grid.Row="2" Background="{StaticResource LayerAccentFillColorBrush1}">
                             <Grid.Resources>
@@ -104,7 +113,11 @@
                             </Border>
 
                             <Border Grid.Column="1" BorderThickness="0.5,0.5,0.5,1">
-                                <Label Content="0.0" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label
+                                    Content="{Binding PeriodTotalHours}"
+                                    ContentStringFormat="{}{0:0.0#}"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    FontWeight="Bold"/>
                             </Border>
 
                             <Border Grid.Column="2" Grid.ColumnSpan="7" BorderThickness="0.5,0.5,1,1"/>

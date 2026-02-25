@@ -47,7 +47,9 @@
                                 <Setter Property="VerticalAlignment" Value="Center"/>
                             </Style>
 
-                            <Style TargetType="TextBox" BasedOn="{StaticResource TimeSheetInputTextBoxStyle}"/>
+                            <Style TargetType="TextBox" BasedOn="{StaticResource TimeSheetInputTextBoxStyle}">
+                                <Setter Property="Width" Value="30"/>
+                            </Style>
 
                             <Style TargetType="Label" BasedOn="{StaticResource DefaultLabelStyle}">
                                 <Setter Property="Foreground" Value="{StaticResource TextAccentFillColorBrush1}"/>
@@ -60,11 +62,11 @@
                             </Style>
                         </StackPanel.Resources>
                         <StackPanel Orientation="Horizontal" Style="{StaticResource InputStackPanelStyle}">
-                            <TextBox Text="0.0"/>
+                            <TextBox Text="{Binding ListHeader.RegularHoursInput, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}}"/>
                             <Label Content="Reg"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Style="{StaticResource InputStackPanelStyle}">
-                            <TextBox Text="0.0"/>
+                            <TextBox Text="{Binding ListHeader.TeleworkHoursInput, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}}"/>
                             <Label Content="TW"/>
                         </StackPanel>
                     </StackPanel>
@@ -72,9 +74,15 @@
                 
                 <!-- #Content -->
                 <StackPanel Grid.Row="1">
-                    <Label Content="{Binding DayOfWeekText, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
-                    <Label Content="01/11"/>
-                    <Label Content="0.0"/>
+                    <Label
+                        Content="{Binding ListHeader.Date, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                        ContentStringFormat="ddd"/>
+                    <Label
+                        Content="{Binding ListHeader.Date, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                        ContentStringFormat="{}{0:MM/dd}"/>
+                    <Label
+                        Content="{Binding ListHeader.ScheduledHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                        ContentStringFormat="{}{0:0.0#}"/>
                 </StackPanel>
             </Grid>
             

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WebTaddy.Models;
 
 namespace WebTaddy.UIComponents.Cards
 {
@@ -19,20 +20,6 @@ namespace WebTaddy.UIComponents.Cards
     public partial class TimeSheetListHeaderCard : UserControl
     {
         // Dependency Properties
-        public static readonly DependencyProperty DateTextProperty =
-            DependencyProperty.Register(
-                nameof(DateText),
-                typeof(string),
-                typeof(TimeSheetListHeaderCard),
-                new PropertyMetadata(null));
-
-        public static readonly DependencyProperty DayOfWeekTextProperty =
-            DependencyProperty.Register(
-                nameof(DayOfWeekText),
-                typeof(string),
-                typeof(TimeSheetListHeaderCard),
-                new PropertyMetadata(null));
-
         public static readonly DependencyProperty IsDayOffProperty =
             DependencyProperty.Register(
                 nameof(IsDayOff),
@@ -40,46 +27,18 @@ namespace WebTaddy.UIComponents.Cards
                 typeof(TimeSheetListHeaderCard),
                 new PropertyMetadata(false));
 
-        public static readonly DependencyProperty RegularHoursTextProperty =
+        public static readonly DependencyProperty ListHeaderProperty =
             DependencyProperty.Register(
-                nameof(RegularHoursText),
-                typeof(string),
-                typeof(TimeSheetListHeaderCard),
-                new PropertyMetadata("0.0"));
-
-        public static readonly DependencyProperty TeleworkHoursTextProperty =
-            DependencyProperty.Register(
-                nameof(TeleworkHoursText),
-                typeof(string),
-                typeof(TimeSheetListHeaderCard),
-                new PropertyMetadata("0.0"));
-
-        public static readonly DependencyProperty TotalHoursTextProperty =
-            DependencyProperty.Register(
-                nameof(TotalHoursText),
-                typeof(string),
+                nameof(ListHeader),
+                typeof(TimeSheetListHeader),
                 typeof(TimeSheetListHeaderCard),
                 new PropertyMetadata(null));
 
+        
         /// <summary>
-        /// Text for the Date label.
+        /// True if the day is normally not a work day,
+        /// false otherwise.
         /// </summary>
-        public string DateText
-        {
-            get => (string)GetValue(DateTextProperty);
-            set => SetValue(DateTextProperty, value);
-        }
-
-        /// <summary>
-        /// Text for the Day of Week label.
-        /// </summary>
-        public string DayOfWeekText
-        {
-            get => (string)GetValue(DayOfWeekTextProperty);
-            set => SetValue(DayOfWeekTextProperty, value);
-        }
-
-
         public bool IsDayOff
         {
             get => (bool)GetValue(IsDayOffProperty);
@@ -87,30 +46,12 @@ namespace WebTaddy.UIComponents.Cards
         }
 
         /// <summary>
-        /// Text for the Regular Hours text box.
+        /// Object model for the card.
         /// </summary>
-        public string RegularHoursText
+        public TimeSheetListHeader ListHeader
         {
-            get => (string)GetValue(RegularHoursTextProperty);
-            set => SetValue(RegularHoursTextProperty, value);
-        }
-
-        /// <summary>
-        /// Text for the Telework Hours text box.
-        /// </summary>
-        public string TeleworkHoursText
-        {
-            get => (string)GetValue(TotalHoursTextProperty);
-            set => SetValue(TotalHoursTextProperty, value);
-        }
-
-        /// <summary>
-        /// Text for the Total Hours label.
-        /// </summary>
-        public string TotalHoursText
-        {
-            get => (string)GetValue(TotalHoursTextProperty);
-            set => SetValue(TotalHoursTextProperty, value);
+            get => (TimeSheetListHeader)GetValue(ListHeaderProperty);
+            set => SetValue(ListHeaderProperty, value);
         }
 
 

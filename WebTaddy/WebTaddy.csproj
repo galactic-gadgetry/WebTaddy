@@ -30,8 +30,4 @@
     <ProjectReference Include="..\MantisUI\MantisUI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

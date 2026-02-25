@@ -76,7 +76,7 @@
                         <Border Grid.Column="2" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Sun"
+                                    ListHeader="{Binding ListHeaders[0], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
                                     IsDayOff="True"/>
                             </Border>
                         </Border>
@@ -84,43 +84,42 @@
                         <Border Grid.Column="3" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Mon"/>
+                                    ListHeader="{Binding ListHeaders[1], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
 
                         <Border Grid.Column="4" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Tue"/>
+                                    ListHeader="{Binding ListHeaders[2], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
 
                         <Border Grid.Column="5" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Wed"/>
+                                    ListHeader="{Binding ListHeaders[3], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
 
                         <Border Grid.Column="6" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Thu"/>
+                                    ListHeader="{Binding ListHeaders[4], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
 
                         <Border Grid.Column="7" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Fri"/>
+                                    ListHeader="{Binding ListHeaders[5], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
 
                         <Border Grid.Column="8" Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                             <Border Style="{StaticResource ColumnHeaderInnerBorderStyle}">
                                 <local:TimeSheetListHeaderCard
-                                    DayOfWeekText="Sat"
-                                    IsDayOff="True"/>
+                                    ListHeader="{Binding ListHeaders[6], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                             </Border>
                         </Border>
                     </Grid>
@@ -129,13 +128,15 @@
                 <!-- #Entries List -->
                 <Border Grid.Row="1">
                     <ListView
-                        x:Name="EntriesListView">
-                        <ListViewItem>
-                            <local:TimeSheetEntryCard Width="{Binding ElementName=EntriesListView, Path=ActualWidth}"/>
-                        </ListViewItem>
-                        <ListViewItem>
-                            <local:TimeSheetEntryCard Width="{Binding ElementName=EntriesListView, Path=ActualWidth}"/>
-                        </ListViewItem>
+                        x:Name="EntriesListView"
+                        ItemsSource="{Binding EntryLines, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:TimeSheetEntryCard
+                                    TimeEntry="{Binding}"
+                                    Width="{Binding ElementName=EntriesListView, Path=ActualWidth}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </Border>
 
@@ -166,39 +167,55 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Grid.Column="0">
-                            <Label Content="Week 1 Total" HorizontalAlignment="Right"/>
+                            <Label Content="{Binding TotalRowText, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" HorizontalAlignment="Right"/>
                         </Border>
 
                         <Border Grid.Column="1">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="2">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="3">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="4">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="5">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="6">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="7">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
 
                         <Border Grid.Column="8">
-                            <Label Content="0.0"/>
+                            <Label
+                                Content="{Binding ListHeaders[0].TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                ContentStringFormat="{}{0:0.0#}"/>
                         </Border>
                     </Grid>
                 </Border>

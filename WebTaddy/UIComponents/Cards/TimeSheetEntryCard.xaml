@@ -18,7 +18,7 @@
                     </Style>
 
                     <Style TargetType="TextBox" BasedOn="{StaticResource TimeSheetInputTextBoxStyle}">
-                        
+                        <Setter Property="Width" Value="30"/>
                     </Style>
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
@@ -52,52 +52,53 @@
 
                         <TextBlock
                             Grid.Column="0" Grid.Row="0"
-                            Text="12345.67.89.10.11"
+                            Text="{Binding TimeEntry.ProjectWbs, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
                             TextWrapping="NoWrap"/>
 
                         <TextBlock
                             Grid.Column="0" Grid.Row="1"
-                            Text="KSC-LAB, TEST, &amp; AND DEV SUSTAIN"
+                            Text="{Binding TimeEntry.ProjectName, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
                             TextWrapping="Wrap"/>
                                             
                         <TextBlock
                             Grid.Column="1" Grid.Row="0"
-                            Text="REG"/>
+                            Text="{Binding TimeEntry.TypeString, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
 
                         <TextBlock
                             Grid.Column="1" Grid.Row="1"
-                            Text="TWORK"/>
+                            Text="{Binding TimeEntry.SubTypeString, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
                     </Grid>
                 </Border>
                 
                 <!-- #Total Hours -->
                 <Border Grid.Column="1" Background="{StaticResource LayerAccentFillColorBrush1}">
                     <Label
-                        Content="0.0"
+                        Content="{Binding TimeEntry.TotalHours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                        ContentStringFormat="{}{0:0.0#}"
                         HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 
                 <!-- #Inputs -->
                 <Border Grid.Column="2">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[0], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="3">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[1], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="4">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[2], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="5">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[3], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="6">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[4], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="7">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[5], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
                 <Border Grid.Column="8">
-                    <TextBox Text="0.0"/>
+                    <TextBox Text="{Binding TimeEntry.Entries[6], RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, StringFormat={}{0:0.0#}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Border>
             </Grid>
             
